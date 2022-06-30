@@ -1,15 +1,14 @@
 import './index.less'
-import Home from '../Home';
+import Home from '../Home'
+import Header from '../../components/Header'
 
-const  Main = () => {
+const Main = () => {
   return (
     <>
-      <div className="main--div--first">
-        <div className='main--div--second'>first second</div>
-      </div>
-      <Home/>
+      {/* <Header></Header> */}
+      <Home></Home>
     </>
   )
 }
 
-export default Main;
+export default Main

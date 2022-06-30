@@ -1,13 +1,15 @@
+import React, { FC } from 'react'
+import Header from '../../components/Header'
 import './index.less'
 
-const  Home = () => {
+// const
+
+const Home = () => {
   return (
     <>
-      <div className="home--div--first">
-          <div className='home--div--second'>first second</div>
-      </div>
+      <Header />
     </>
   )
 }
 
-export default Home;
+export default Home
