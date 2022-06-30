@@ -23,11 +23,22 @@
     "@types/node": "^18.0.0",
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.30.0",
+    "@typescript-eslint/parser": "^5.30.0",
     "@vitejs/plugin-react": "^1.3.0",
+    "eslint": "^8.18.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-react": "^7.30.1",
     "husky": "^8.0.1",
     "less": "^4.1.3",
+    "lint-staged": "^13.0.3",
+    "prettier": "^2.7.1",
     "sass-resources-loader": "^2.2.5",
     "typescript": "^4.6.3",
     "vite": "^2.9.9"
+  },
+  "lint-staged": {
+    "*.{tsx,ts,js}": "eslint --cache --fix",
+    "**/*": "prettier --write --ignore-unknown"
   }
 }
