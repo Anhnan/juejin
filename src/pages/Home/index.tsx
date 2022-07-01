@@ -1,13 +1,19 @@
-import React, { FC } from 'react'
+import React from 'react'
 import Header from '../../components/Header'
+import Footer from '../../components/Footer'
 import './index.less'
+import ArticleAll from '../../components/ArticleAll'
 
 // const
 
 const Home = () => {
   return (
     <>
-      <Header />
+      <div className="home--wrapper">
+        <Header />
+        <ArticleAll></ArticleAll>
+        <Footer></Footer>
+      </div>
     </>
   )
 }
