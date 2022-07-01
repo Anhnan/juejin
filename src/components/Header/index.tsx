@@ -26,7 +26,7 @@ export default function Header() {
           >
             <div className="header--search--input--wrapper">
               <input
-                placeholder={`${search === true ? '搜索稀土掘金' : ''}`}
+                placeholder={`${search === true ? '搜索文章/小册/标签/用户' : '探索稀土掘金'}`}
                 onFocus={getSearch}
                 onBlur={loseSearch}
               />
