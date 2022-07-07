@@ -22,6 +22,7 @@ export async function getCategories() {
  * @param {*} limit 同上
  */
 export async function getArticles(categoryId = 0, sortBy = 'hot', offset = 0, limit = 10) {
+  // console.log(categoryId)
   const sortFunc = {
     new: (a, b) => b.article_info.ctime - a.article_info.ctime,
     hot: (a, b) => b.article_info.digg_count - a.article_info.digg_count,

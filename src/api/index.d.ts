@@ -19,7 +19,7 @@ interface CategoriesData {
 
 export type CategoriesResponse = Res<{ data: CategoriesData }>
 
-type SortBy = 'hot' | 'new'
+export type SortBy = 'hot' | 'new'
 
 interface ArticleInfo {
   article_id: string
@@ -38,9 +38,9 @@ interface ArticleInfo {
   original_type: number
   original_author: string
   content: string
-  ctime: string
-  mtime: string
-  rtime: string
+  ctime: number
+  mtime: number
+  rtime: number
   draft_id: string
   view_count: number
   collect_count: number
@@ -62,7 +62,7 @@ interface CategoryInfo {
   second_category_name: string
 }
 
-interface Article {
+export interface Article {
   article_id: string
   article_info: ArticleInfo
   author_user_info: UserInfo
@@ -70,8 +70,12 @@ interface Article {
   article_content: string
 }
 
-interface ArticlesData {
+export interface ArticlesData {
   articles: Article[]
+}
+
+export interface ArticleData {
+  article: Article
 }
 
 export type ArticlesResponse = Res<{
@@ -82,7 +86,15 @@ export type ArticlesResponse = Res<{
 
 export function getArticles(
   categoryId: number,
-  sortBy: SortBy,
-  offset: number,
-  limit: number,
+  sortBy?: SortBy,
+  offset?: number,
+  limit?: number,
 ): Promise<ArticlesResponse>
+
+export type ArticleResponse = Res<{
+  data: {
+    article: Article
+  }
+}>
+
+export function getArticleById(articleId: string): Promise<ArticleResponse>

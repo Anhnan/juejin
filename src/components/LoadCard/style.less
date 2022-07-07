@@ -1,0 +1,38 @@
+.load--card--wrapper {
+  padding: 14px;
+  height: 130px;
+  background-color: #fff;
+  .load--card--item {
+    list-style: none;
+    height: 16px;
+    margin: 10px 0;
+    width: 100%;
+    width: 100%;
+    overflow: hidden;
+    &::after {
+      content: '';
+      width: 1000px;
+      height: 16px;
+      display: block;
+      background-image: linear-gradient(
+        90deg,
+        rgba(224, 223, 223, 0.2) 25%,
+        rgba(109, 109, 109, 0.24) 37%,
+        rgba(190, 190, 190, 0.2) 63%
+      );
+      position: relative;
+      animation: slide 0.3s linear infinite;
+    }
+    &:nth-child(4) {
+      width: 61%;
+    }
+  }
+}
+@keyframes slide {
+  0% {
+    left: -400px;
+  }
+  100% {
+    left: 0;
+  }
+}
