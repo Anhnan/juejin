@@ -2,6 +2,7 @@ import { FC, useEffect, useState } from 'react'
 import { ArticleData } from '../../api'
 import * as dayjs from 'dayjs'
 import './style.less'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const timeSubUnit = {
   year: '年',
@@ -14,6 +15,8 @@ const timeSubUnit = {
 
 const ArticleCard: FC<ArticleData> = ({ article }) => {
   const [showTime, setShowTime] = useState('')
+  const navigate = useNavigate()
+
   useEffect(() => {
     setShowTime(getTimeShow(article.article_info.ctime))
   }, [])
@@ -34,7 +37,30 @@ const ArticleCard: FC<ArticleData> = ({ article }) => {
   }
   return (
     <>
-      <div className="articleCard--item--wrapper">
+      <div
+        className="articleCard--item--wrapper"
+        onClick={() => {
+          // 获取绝对路径
+          const hrefStr = window.location.href
+          const location = useLocation()
+          console.log('@@@', location)
+
+          // 获取相对路径
+          const urlParams = new URL(hrefStr)
+          const pathname = urlParams?.pathname
+          // 获取根路径
+          const rootPath = hrefStr.replace(pathname, '')
+          // console.log(hrefStr, '###',urlParams, '###',pathname, '###',rootPath);
+          console.log(urlParams)
+
+          // 在新标签页面打开绝对路径
+          window.open(`${urlParams.origin}#/post/${article.article_id}`, '_blank')
+          // 该页面需要的信息通过id进行获取，其他信息也可以通过localStorage等方式进行保存
+          // navigate(`/post/${article.article_id}`, {
+          //   replace: true
+          // })
+        }}
+      >
         <div className="articleCard--item--content">
           <div className="articleCard--item--author">
             <div className="articleCard--author--username">
